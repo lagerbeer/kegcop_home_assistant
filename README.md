@@ -30,8 +30,36 @@ Check the dashboard YAML for all of the cards that are used.
 
 ![image](https://user-images.githubusercontent.com/18006478/231233536-0c225c4e-7218-4e61-aa11-e33daec03632.png)
 
+Install the flowmeter code into the esp32
+
+This is the code that works for me, you will need to test to make sure it works for you type of flow meter:
+
+  - platform: pulse_counter
+    state_class: measurement
+    name: "count_1"
+    id: count_1
+    pin: 
+      number: GPIO4
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    update_interval: 30s
+    internal_filter: 13us
+    count_mode:
+      rising_edge: INCREMENT
+      falling_edge: DISABLE
+    unit_of_measurement: "pulses"
+    accuracy_decimals: 2
+    filters:
+     - debounce: 0.1s
+     - lambda: return (x / 1);  
+     
+
 
 ![image](https://user-images.githubusercontent.com/18006478/231233758-487a1834-8616-4218-b0d2-a07ae0db0021.png)
+
+
 
 
 ![image](https://user-images.githubusercontent.com/18006478/231233964-64242ba4-fc3b-4ae0-8100-e579d777f6f6.png)
