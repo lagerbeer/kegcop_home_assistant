@@ -73,4 +73,22 @@ I created one each for each keg, here is a date example:
 ![image](https://user-images.githubusercontent.com/18006478/231234289-f9f20836-82ce-4cc4-a398-f9f751df5748.png)
 
 
+OPERATION:
+
+The tool is managed in the screen below. There are only three functions that need to be managed.
+
+1. New Keg Date: enter in the date that the keg is tapped. The tool will add up the pulses based on the start date.  Change date when the keg is empty and replaced with a new keg.
+2. Keg Size: The keg volume will be based off of the amount selected in the slider.  
+3. Pulse per Oz calibration: Pour a measured amount and then change this number to get the correct calculation per pour.  For example, pour 8 oz of liquid and check the control panel results for that pour.  You can hard code your pulse per oz results in the input_numbers.yaml in the initial field. If your home assistant instance restarts it will reset this number back to the initial value.
+
+box1:
+  name: Keg 1 PPO calibration
+  initial: 27
+  min: -20
+  max: 135
+  step: 1
+  mode: box
+  
+
+![image](https://user-images.githubusercontent.com/18006478/231262928-adf5e2c3-fcdf-4cff-aae1-2358c28e329b.png)
 
