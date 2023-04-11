@@ -1,0 +1,221 @@
+esphome:
+  name: beer-flow-meters
+  friendly_name: Beer Flow Meters
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "xxx"
+
+ota:
+  password: "xxx"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Beer-Flow-Meters"
+    password: "xxx"
+
+mqtt:
+  broker: 192.168.0.34
+  username: xxx 
+  password:  xxx
+  topic_prefix: 'beer_flow_meter/feeds'
+  birth_message:
+  will_message:
+  log_topic:
+
+captive_portal:
+
+dallas:
+ - id: "dallas_hub_1"
+   pin: GPIO14
+ #- id: "dallas_hub_2"
+ #  pin: GPIO33
+ - id: "dallas_hub_3"
+   pin: GPIO25
+ - id: "dallas_hub_4"
+   pin: GPIO26
+
+sensor:
+
+  - platform: dallas
+    address: 0x75012063584dc528
+    name: "KEG TEMP"
+    filters:
+    - lambda: return x * (9.0/5.0) + 33.0;
+    unit_of_measurement: "°F"
+    dallas_id: dallas_hub_1
+  
+  #- platform: dallas
+  #  address: 0x2001206350682828
+  #  name: "TOWER TEMP"
+  #  filters:
+  #  - lambda: return x * (9.0/5.0) + 33.0;
+  #  unit_of_measurement: "°F"
+  #  dallas_id: dallas_hub_2
+  
+  - platform: dallas  
+    address: 0xe30120634f9c0a28
+    name: "UPPER CHAMBER TEMP"
+    filters:
+    - lambda: return x * (9.0/5.0) + 33.0;
+    unit_of_measurement: "°F"
+    dallas_id: dallas_hub_3
+  
+  - platform: dallas
+    address: 0x3901206321ada728
+    name: "LOWER CHAMBER TEMP"
+    filters:
+    - lambda: return x * (9.0/5.0) + 33.0;
+    unit_of_measurement: "°F"
+    dallas_id: dallas_hub_4    
+ 
+  - platform: pulse_counter
+    state_class: measurement
+    name: "count_1"
+    id: count_1
+    pin: 
+      number: GPIO4
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    update_interval: 30s
+    internal_filter: 13us
+    count_mode:
+      rising_edge: INCREMENT
+      falling_edge: DISABLE
+    unit_of_measurement: "pulses"
+    accuracy_decimals: 2
+    filters:
+     - debounce: 0.1s
+     - lambda: return (x / 1);  
+ 
+
+
+  - platform: pulse_counter
+    state_class: measurement
+    name: "count_2"
+    id: count_2
+    pin: 
+      number: GPIO16
+      mode:
+        input: true
+        pullup: true
+    update_interval: 30s
+    internal_filter: 13us
+    count_mode:
+      rising_edge: INCREMENT
+      falling_edge: DISABLE
+    unit_of_measurement: "pulses"
+    accuracy_decimals: 2
+    filters:
+     - debounce: 0.1s
+     - lambda: return (x / 1);  
+ 
+ 
+
+
+  - platform: pulse_counter
+    state_class: measurement
+    name: "count_3"
+    id: count_3
+    pin: 
+      number: GPIO17
+      mode:
+        input: true
+        pullup: true
+    update_interval: 30s
+    internal_filter: 13us
+    count_mode:
+      rising_edge: INCREMENT
+      falling_edge: DISABLE
+    unit_of_measurement: "pulses"
+    accuracy_decimals: 2
+    filters:
+     - debounce: 0.1s
+     - lambda: return (x / 1);  
+ 
+ 
+
+
+
+  - platform: pulse_counter
+    state_class: measurement
+    name: "count_4"
+    id: count_4
+    pin: 
+      number: GPIO18
+      mode:
+        input: true
+        pullup: true
+    update_interval: 30s
+    internal_filter: 13us
+    count_mode:
+      rising_edge: INCREMENT
+      falling_edge: DISABLE
+    unit_of_measurement: "pulses"
+    accuracy_decimals: 2
+    filters:
+     - debounce: 0.1s
+     - lambda: return (x / 1);  
+ 
+ 
+      
+
+
+  - platform: pulse_counter
+    state_class: measurement
+    name: "count_5"
+    id: count_5
+    pin: 
+      number: GPIO19
+      mode:
+        input: true
+        pullup: true
+    update_interval: 30s
+    internal_filter: 13us
+    count_mode:
+      rising_edge: INCREMENT
+      falling_edge: DISABLE
+    unit_of_measurement: "pulses"
+    accuracy_decimals: 2
+    filters:
+     - debounce: 0.1s
+     - lambda: return (x / 1);  
+ 
+
+
+  - platform: pulse_counter
+    state_class: measurement
+    name: "count_6"
+    id: count_6
+    pin: 
+      number: GPIO21
+      mode:
+        input: true
+        pullup: true
+    update_interval: 30s
+    internal_filter: 13us
+    count_mode:
+      rising_edge: INCREMENT
+      falling_edge: DISABLE
+    unit_of_measurement: "pulses"
+    accuracy_decimals: 2
+    filters:
+     - debounce: 0.1s
+     - lambda: return (x / 1);  
+
+
