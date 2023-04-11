@@ -1,0 +1,124 @@
+#keg last pour sql
+- name: Keg 1 last pour
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_1' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "state"
+
+- name: Keg 2 last pour
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_2' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "state"
+
+- name: Keg 3 last pour
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_3' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "state"
+
+- name: Keg 4 last pour
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_4' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "state"
+
+- name: Keg 5 last pour
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_5' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "state"
+
+- name: Keg 6 last pour
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_6' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "state"
+
+  #last pour date
+- name: Keg 1 last pour date
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_1' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "day"
+
+- name: Keg 2 last pour date
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_2' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "day"
+
+- name: Keg 3 last pour date
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_3' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "day"
+
+- name: Keg 4 last pour date
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_4' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "day"
+
+- name: Keg 5 last pour date
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_5' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "day"
+
+- name: Keg 6 last pour date
+  db_url: !secret db_url
+  query: SELECT from_unixtime(states.last_updated_ts, '%W, %D %M %Y %h:%i:%s') as 'day', states.state  FROM states WHERE   metadata_id = ( SELECT metadata_id FROM states_meta WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_6' and state >200) ) ORDER BY state_id DESC LIMIT 1;
+  column: "day"
+
+# Keg pulses
+
+- name: Keg 1 Pulses
+  db_url: !secret db_url
+  query: SELECT   states.state FROM   states WHERE metadata_id = ( SELECT metadata_id FROM states_meta  WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_1' and state >200) ) ORDER BY state_id DESC LIMIT  1;
+  column: "state"
+
+- name: Keg 2 Pulses
+  db_url: !secret db_url
+  query: SELECT   states.state FROM   states WHERE metadata_id = ( SELECT metadata_id FROM states_meta  WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_2' and state >200) ) ORDER BY state_id DESC LIMIT  1;
+  column: "state"
+
+- name: Keg 3 Pulses
+  db_url: !secret db_url
+  query: SELECT   states.state FROM   states WHERE metadata_id = ( SELECT metadata_id FROM states_meta  WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_3' and state >200) ) ORDER BY state_id DESC LIMIT  1;
+  column: "state"
+
+- name: Keg 4 Pulses
+  db_url: !secret db_url
+  query: SELECT   states.state FROM   states WHERE metadata_id = ( SELECT metadata_id FROM states_meta  WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_4' and state >200) ) ORDER BY state_id DESC LIMIT  1;
+  column: "state"
+
+- name: Keg 5 Pulses
+  db_url: !secret db_url
+  query: SELECT   states.state FROM   states WHERE metadata_id = ( SELECT metadata_id FROM states_meta  WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_5' and state >200) ) ORDER BY state_id DESC LIMIT  1;
+  column: "state"
+
+- name: Keg 6 Pulses
+  db_url: !secret db_url
+  query: SELECT   states.state FROM   states WHERE metadata_id = ( SELECT metadata_id FROM states_meta  WHERE (entity_id = 'sensor.Beer_Flow_Meters_count_6' and state >200) ) ORDER BY state_id DESC LIMIT  1;
+  column: "state"
+
+  # Keg total pours
+- name: keg_1_totals
+  db_url: !secret db_url
+  query: SELECT sum(states.state) as total, from_unixtime(states.last_updated_ts, '%m %d %y') as day1 FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id = 'sensor.Beer_Flow_Meters_count_1' and state >200 and from_unixtime(states.last_updated_ts, '%m %d %y') >= ((SELECT DATE_FORMAT(states.state, '%m %d %y') as 'day2' FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id ='input_datetime.keg_1_dt' ) ORDER BY state_id DESC LIMIT 1)) ) ORDER BY state_id DESC LIMIT 100
+  column: total
+
+- name: keg_2_totals
+  db_url: !secret db_url
+  query: SELECT sum(states.state) as total, from_unixtime(states.last_updated_ts, '%m %d %y') as day1 FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id = 'sensor.Beer_Flow_Meters_count_2' and state >200 and from_unixtime(states.last_updated_ts, '%m %d %y') >= ((SELECT DATE_FORMAT(states.state, '%m %d %y') as 'day2' FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id ='input_datetime.keg_2_dt' ) ORDER BY state_id DESC LIMIT 1)) ) ORDER BY state_id DESC LIMIT 100
+  column: total
+
+- name: keg_3_totals
+  db_url: !secret db_url
+  query: SELECT sum(states.state) as total, from_unixtime(states.last_updated_ts, '%m %d %y') as day1 FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id = 'sensor.Beer_Flow_Meters_count_3' and state >200 and from_unixtime(states.last_updated_ts, '%m %d %y') >= ((SELECT DATE_FORMAT(states.state, '%m %d %y') as 'day2' FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id ='input_datetime.keg_3_dt' ) ORDER BY state_id DESC LIMIT 1)) ) ORDER BY state_id DESC LIMIT 100
+  column: total
+
+- name: keg_4_totals
+  db_url: !secret db_url
+  query: SELECT sum(states.state) as total, from_unixtime(states.last_updated_ts, '%m %d %y') as day1 FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id = 'sensor.Beer_Flow_Meters_count_4' and state >200 and from_unixtime(states.last_updated_ts, '%m %d %y') >= ((SELECT DATE_FORMAT(states.state, '%m %d %y') as 'day2' FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id ='input_datetime.keg_4_dt' ) ORDER BY state_id DESC LIMIT 1)) ) ORDER BY state_id DESC LIMIT 100
+  column: total
+
+- name: keg_5_totals
+  db_url: !secret db_url
+  query: SELECT sum(states.state) as total, from_unixtime(states.last_updated_ts, '%m %d %y') as day1 FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id = 'sensor.Beer_Flow_Meters_count_5' and state >200 and from_unixtime(states.last_updated_ts, '%m %d %y') >= ((SELECT DATE_FORMAT(states.state, '%m %d %y') as 'day2' FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id ='input_datetime.keg_5_dt' ) ORDER BY state_id DESC LIMIT 1)) ) ORDER BY state_id DESC LIMIT 100
+  column: total
+
+- name: keg_6_totals
+  db_url: !secret db_url
+  query: SELECT sum(states.state) as total, from_unixtime(states.last_updated_ts, '%m %d %y') as day1 FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id = 'sensor.Beer_Flow_Meters_count_6' and state >200 and from_unixtime(states.last_updated_ts, '%m %d %y') >= ((SELECT DATE_FORMAT(states.state, '%m %d %y') as 'day2' FROM states WHERE metadata_id = ( SELECT metadata_id FROM states_meta WHERE entity_id ='input_datetime.keg_6_dt' ) ORDER BY state_id DESC LIMIT 1)) ) ORDER BY state_id DESC LIMIT 100
+  column: total
