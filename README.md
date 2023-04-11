@@ -18,9 +18,15 @@ Next you should set up mariadb and you config.yaml file.
 
 ![image](https://user-images.githubusercontent.com/18006478/231232551-13966eaf-0915-4fb3-9a5f-a5c2a4cc7f60.png)
 
+You will need to get some frontend cards from HACS to for the dashboard:
 
+1. bar-card
+2. horizontal-stack
+3. mini-graph-card
+4. vertical-stack
+5. gauge
 
-
+Check the dashboard YAML for all of the cards that are used.
 
 ![image](https://user-images.githubusercontent.com/18006478/231233536-0c225c4e-7218-4e61-aa11-e33daec03632.png)
 
