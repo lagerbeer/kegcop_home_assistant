@@ -59,13 +59,18 @@ This is the code that works for me, you will need to test to make sure it works 
 
 ![image](https://user-images.githubusercontent.com/18006478/231233758-487a1834-8616-4218-b0d2-a07ae0db0021.png)
 
-
+Next you will need to create a date field and a number field within the device and services helpers tab.
 
 
 ![image](https://user-images.githubusercontent.com/18006478/231233964-64242ba4-fc3b-4ae0-8100-e579d777f6f6.png)
 
+I created one each for each keg, here is a date example:
 
 ![image](https://user-images.githubusercontent.com/18006478/231234120-f3298b70-ba44-4e18-a36e-c2451879764b.png)
 
+ Here is a number example:
 
 ![image](https://user-images.githubusercontent.com/18006478/231234289-f9f20836-82ce-4cc4-a398-f9f751df5748.png)
+
+
+
