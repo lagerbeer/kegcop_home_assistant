@@ -1,0 +1,840 @@
+title: Home
+views:
+  - theme: Backend-selected
+    title: Beer Board
+    path: beer-board
+    icon: mdi:keg
+    badges: []
+    cards:
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.keg_1_percent
+            name: Keg 1
+            icon: mdi:keg
+          - entity: sensor.keg_2_percent
+            name: Keg 2
+            icon: mdi:keg
+          - entity: sensor.keg_3_percent
+            name: Keg 3
+            icon: mdi:keg
+            height: 30px
+          - entity: sensor.keg_4_percent
+            name: Keg 4
+            icon: mdi:keg
+          - entity: sensor.keg_5_percent
+            name: Keg 5
+            icon: mdi:keg
+          - entity: sensor.keg_6_percent
+            name: Keg 6
+            icon: mdi:keg
+            height: 30px
+        direction: up
+        width: 50px
+        height: 200px
+        animation:
+          state: 'on'
+        positions:
+          icon: 'on'
+          indicator: inside
+          name: inside
+        title: Kegs 1 2 3 4 5 6
+        severity:
+          - color: Red
+            to: '49'
+            from: '0'
+          - color: Orange
+            from: '50'
+            to: '80'
+          - color: Green
+            from: '81'
+            to: '100'
+        icon: mdi-beer
+        unit_of_measurement: Percent
+        columns: '6'
+        entity_row: true
+        style: |-
+          .card-header {
+            font-size: 18px;
+          }
+          bar-card-value, bar-card-name {
+            font-size: 12px;
+            transform-origin: 0 0;
+            transform: rotate(270deg);
+            text-shadow: 1px 1px #0008;
+            white-space: nowrap;
+          }
+          bar-card-value {
+            margin-right: auto;
+            margin-left: 6px;
+            margin-bottom: auto;
+            margin-top: auto;
+          }
+          bar-card-name {
+            margin-right: auto;
+            margin-left: 0px;
+            margin-bottom: -130px;
+            margin-top: 130px;
+            right: 20px;
+          }
+          bar-card-currentbar, bar-card-backgroundbar {
+            border-radius: 12px;
+            border: 1px solid #DDD9;
+          }
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.beer_flow_meters_lower_chamber_temp
+            name: Lower tmp
+            show:
+              labels: true
+            color_thresholds:
+              - value: 32
+                color: '#f39c12'
+              - value: 45
+                color: '#d35400'
+              - value: 70
+                color: '#c0392b'
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.beer_flow_meters_upper_chamber_temp
+            name: Upper tmp
+            show:
+              labels: true
+            color_thresholds:
+              - value: 34
+                color: green
+              - value: 45
+                color: blue
+              - value: 70
+                color: red
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.beer_flow_meters_keg_temp
+            name: Keg tmp
+            show:
+              labels: true
+            color_thresholds:
+              - value: 34
+                color: green
+              - value: 45
+                color: blue
+              - value: 70
+                color: red
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.garage_freezer
+            name: Kezer T
+            show:
+              labels: true
+            color_thresholds:
+              - value: 34
+                color: green
+              - value: 45
+                color: blue
+              - value: 70
+                color: red
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.garage_fridge
+            name: Fermentor
+            show:
+              labels: true
+            color_thresholds:
+              - value: 34
+                color: green
+              - value: 45
+                color: blue
+              - value: 70
+                color: red
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.garage_frz_d967_temperature
+            name: Garage
+            show:
+              labels: true
+            color_thresholds:
+              - value: 34
+                color: green
+              - value: 45
+                color: blue
+              - value: 70
+                color: red
+  - theme: Backend-selected
+    title: Keg Configuration
+    path: test-board
+    icon: mdi:glass-mug-variant
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.keg_1_last_pour_date
+                name: last pour date
+              - entity: sensor.keg_1_last_pour
+                name: Last Pour Pulses
+              - entity: sensor.keg_1_totals
+                name: Current Keg Total Pulses
+              - entity: sensor.keg_1_last_pour_oz
+                name: Last Pour oz
+              - entity: input_number.box1
+                name: Pulse Per oz Calibration
+            theme: Fluent Green
+            title: Keg 1 Control Panel
+            show_header_toggle: true
+            state_color: true
+          - type: entities
+            entities:
+              - entity: sensor.keg_1_remaining
+                name: Remaining Gallons
+              - entity: sensor.keg_1_percent
+                name: Percent remaining in Keg
+              - entity: sensor.keg_1_gallons
+                name: Gallons used
+            theme: Fluent Orange
+          - type: entities
+            entities:
+              - entity: input_number.keg_1_size
+              - entity: input_datetime.keg_1_dt
+                name: New Keg Date
+            theme: Fluent Red
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.keg_2_last_pour_date
+                name: last pour date
+              - entity: sensor.keg_2_last_pour
+                name: Last Pour Pulses
+              - entity: sensor.keg_2_totals
+                name: Current Keg Total Pulses
+              - entity: sensor.keg_2_last_pour_oz
+                name: Last Pour oz
+              - entity: input_number.box2
+                name: Pulse Per oz Calibration
+            theme: Fluent Green
+            title: Keg 2 Control Panel
+            show_header_toggle: true
+            state_color: true
+          - type: entities
+            entities:
+              - entity: sensor.keg_2_remaining
+                name: Remaining Gallons
+              - entity: sensor.keg_2_percent
+                name: Percent remaining in Keg
+              - entity: sensor.keg_2_gallons
+                name: Gallons used
+            theme: Fluent Orange
+          - type: entities
+            entities:
+              - entity: input_number.keg_2_size
+              - entity: input_datetime.keg_2_dt
+                name: New Keg Date
+            theme: Fluent Red
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.keg_3_last_pour_date
+                name: last pour date
+              - entity: sensor.keg_3_last_pour
+                name: Last Pour Pulses
+              - entity: sensor.keg_3_totals
+                name: Current Keg Total Pulses
+              - entity: sensor.keg_3_last_pour_oz
+                name: Last Pour oz
+              - entity: input_number.box3
+                name: Pulse Per oz Calibration
+            theme: Fluent Green
+            title: Keg 3 Control Panel
+            show_header_toggle: false
+            state_color: true
+          - type: entities
+            entities:
+              - entity: sensor.keg_3_remaining
+                name: Remaining Gallons
+              - entity: sensor.keg_3_percent
+                name: Percent remaining in Keg
+              - entity: sensor.keg_3_gallons
+                name: Gallons used
+            theme: Fluent Orange
+          - type: entities
+            entities:
+              - entity: input_number.keg_3_size
+              - entity: input_datetime.keg_3_dt
+                name: New Keg Date
+            theme: Fluent Red
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.keg_4_last_pour_date
+                name: last pour date
+              - entity: sensor.keg_4_last_pour
+                name: Last Pour Pulses
+              - entity: sensor.keg_4_totals
+                name: Current Keg Total Pulses
+              - entity: sensor.keg_4_last_pour_oz
+                name: Last Pour oz
+              - entity: input_number.box4
+                name: Pulse Per oz Calibration
+            theme: Fluent Green
+            title: Keg 4 Control Panel
+            show_header_toggle: true
+            state_color: true
+          - type: entities
+            entities:
+              - entity: sensor.keg_4_remaining
+                name: Remaining Gallons
+              - entity: sensor.keg_4_percent
+                name: Percent remaining in Keg
+              - entity: sensor.keg_4_gallons
+                name: Gallons used
+            theme: Fluent Orange
+          - type: entities
+            entities:
+              - entity: input_number.keg_4_size
+              - entity: input_datetime.keg_4_dt
+                name: New Keg Date
+            theme: Fluent Red
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.keg_5_last_pour_date
+                name: last pour date
+              - entity: sensor.keg_5_last_pour
+                name: Last Pour Pulses
+              - entity: sensor.keg_5_totals
+                name: Current Keg Total Pulses
+              - entity: sensor.keg_5_last_pour_oz
+                name: Last Pour oz
+              - entity: input_number.box5
+                name: Pulse Per oz Calibration
+            theme: Fluent Green
+            title: Keg 5 Control Panel
+            show_header_toggle: true
+            state_color: true
+          - type: entities
+            entities:
+              - entity: sensor.keg_5_remaining
+                name: Remaining Gallons
+              - entity: sensor.keg_5_percent
+                name: Percent remaining in Keg
+              - entity: sensor.keg_5_gallons
+                name: Gallons used
+            theme: Fluent Orange
+          - type: entities
+            entities:
+              - entity: input_number.keg_5_size
+              - entity: input_datetime.keg_5_dt
+                name: New Keg Date
+            theme: Fluent Red
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.keg_6_last_pour_date
+                name: last pour date
+              - entity: sensor.keg_6_last_pour
+                name: Last Pour Pulses
+              - entity: sensor.keg_6_totals
+                name: Current Keg Total Pulses
+              - entity: sensor.keg_6_last_pour_oz
+                name: Last Pour oz
+              - entity: input_number.box6
+                name: Pulse Per oz Calibration
+            theme: Fluent Green
+            title: Keg 6 Control Panel
+            show_header_toggle: true
+            state_color: true
+          - type: entities
+            entities:
+              - entity: sensor.keg_6_remaining
+                name: Remaining Gallons
+              - entity: sensor.keg_6_percent
+                name: Percent remaining in Keg
+              - entity: sensor.keg_6_gallons
+                name: Gallons used
+            theme: Fluent Orange
+          - type: entities
+            entities:
+              - entity: input_number.keg_6_size
+              - entity: input_datetime.keg_6_dt
+                name: New Keg Date
+            theme: Fluent Red
+  - title: test
+    path: test
+    badges: []
+    cards:
+      - type: custom:bar-card
+        positions:
+          indicator: 'off'
+          value: inside
+          title: 'off'
+          name: outside
+          icon: inside
+        animation:
+          state: 'on'
+        direction: up
+        height: 200px
+        width: 62px
+        columns: 6
+        stack: horizontal
+        min: 0
+        max: 100
+        entities:
+          - entity: sensor.keg_1_percent
+            name: Keg 1
+            icon: mdi:keg
+            height: 30px
+          - entity: sensor.keg_2_percent
+            name: Keg 1
+            icon: mdi:keg
+            height: 30px
+          - entity: sensor.keg_3_percent
+            name: Keg 1
+            icon: mdi:keg
+            height: 30px
+          - entity: sensor.keg_4_percent
+            name: Keg 1
+            icon: mdi:keg
+            height: 30px
+          - entity: sensor.keg_5_percent
+            name: Keg 1
+            icon: mdi:keg
+            height: 30px
+          - entity: sensor.keg_6_percent
+            name: Keg 1
+            icon: mdi:keg
+        severity:
+          - color: rgb(231,211,78)
+            from: '0'
+            to: '5'
+          - color: rgb(242,214,69)
+            from: '5'
+            to: '10'
+          - color: rgb(253,217,60)
+            from: '10'
+            to: '15'
+          - color: rgb(247,206,58)
+            from: '15'
+            to: '20'
+          - color: rgb(240,194,55)
+            from: '20'
+            to: '25'
+          - color: rgb(234,183,53)
+            from: '25'
+            to: '30'
+          - color: rgb(227,171,50)
+            from: '30'
+            to: '35'
+          - color: rgb(221,160,48)
+            from: '35'
+            to: '40'
+          - color: rgb(214,148,45)
+            from: '40'
+            to: '45'
+          - color: rgb(208,137,43)
+            from: '45'
+            to: '50'
+          - color: rgb(201,125,40)
+            from: '50'
+            to: '55'
+          - color: rgb(195,114,38)
+            from: '55'
+            to: '60'
+          - color: rgb(188,102,35)
+            from: '60'
+            to: '65'
+          - color: rgb(182,91,33)
+            from: '65'
+            to: '70'
+          - color: rgb(175,79,30)
+            from: '70'
+            to: '75'
+          - color: rgb(169,68,28)
+            from: '75'
+            to: '80'
+          - color: rgb(162,56,25)
+            from: '80'
+            to: '85'
+          - color: rgb(155,45,23)
+            from: '85'
+            to: '90'
+          - color: rgb(148,33,20)
+            from: '90'
+            to: '95'
+          - color: rgb(141,22,18)
+            from: '95'
+            to: '97'
+          - color: rgb(134,11,15)
+            from: '97'
+            to: '98'
+          - color: rgb(127,0,12)
+            from: '98'
+            to: '100'
+        style: |
+          ha-card {
+            margin-top: 10px;
+            margin-bottom: -10px;
+            padding-top: 10px;
+            border-top: 5px solid #222222;
+          }
+          bar-card-card {
+            margin-right: 0px;
+            font-size: 13px;
+          }
+          bar-card-value {
+            color: #222222;
+            color: #9da5b4;
+          }
+          bar-card-iconbar {
+            width: 20px;
+            color: #333;
+            margin-top: 65px;
+          }
+          bar-card-name {
+            margin: 4px 0;
+            color: #9da5b4;
+            color: #dadadb;
+          }
+          .value-direction-up {
+            #color: #dadadb;
+            margin-top: -125px;
+          }
+          bar-card-backgroundbar {
+            filter: brightness(.45);
+          }
+          bar-card-backgroundbar {
+            background: linear-gradient(to bottom, green 5%, yellow 15%, orange 35%, red 85%);
+          }
+          bar-card-currentbar {
+            background: linear-gradient(to bottom, green 5%, yellow 15%, orange 35%, red 85%);
+            clip-path: polygon(0 0, var(--bar-percent) 0, var(--bar-percent) 100%, 0 100%);
+          }
+      - title: Kegerator Volumes
+        type: custom:bar-card
+        columns: 2
+        entity_row: true
+        entities:
+          - entity: sensor.keg_1_percent
+            name: Keg 1
+            icon: mdi:keg
+            height: 30px
+          - entity: sensor.keg_2_percent
+            name: Keg 2
+            icon: mdi:keg
+            height: 30px
+          - entity: sensor.keg_3_percent
+            name: Keg 3
+            icon: mdi:keg
+            height: 30px
+          - entity: sensor.keg_4_percent
+            name: Keg 4
+            icon: mdi:keg
+            height: 30px
+          - entity: sensor.keg_5_percent
+            name: Keg 5
+            icon: mdi:keg
+            height: 30px
+          - entity: sensor.keg_6_percent
+            name: Keg 6
+            icon: mdi:keg
+            height: 30px
+        severity:
+          - to: '60'
+            color: rgb(26,204,147,0.33)
+            from: '0'
+          - from: '61'
+            to: '80'
+            color: rgb(255,140,0,0.60)
+          - from: '81'
+            to: '100'
+            color: rgb(26,204,147,0.33)
+        positions:
+          indicator: 'off'
+          style: |-
+            bar-card-title {
+              text-shadow: 1px 1px 5px black;
+             }
+      - type: vertical-stack
+        title: kreezer Temps
+        cards:
+          - type: markdown
+            content: >
+
+              **Uptime:** {{ states("sensor.glances_server_uptime") }}
+
+
+              <b>Important Processes:</b>
+
+              * **Name:** {{
+              states.sensor.glances_server_cpu_process_glances.attributes.name
+              }} **Stratus**:  {% if
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'R' %} <font color="green">Running</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'S' %} <font color="orange">Interruptible sleep</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'D' %} <font color="red">Uninterruptible sleep</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'Z' %} <font color="red">Defunct process</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'T' %} <font color="red">Traced by job control signal</font>{%
+              elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 't' %} <font color="red">Stopped by debugger</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'X' %} <font color="red">Dead</font>{% else %} <font
+              color="red">Not Running</font> {% endif %}
+
+              <b>PID: </b>{{
+              states.sensor.glances_server_cpu_process_glances.attributes.pid }}
+              <b>User:</b> {{
+              states.sensor.glances_server_cpu_process_glances.attributes.username
+              }}
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.beer_flow_meters_lower_chamber_temp
+                min: 0
+                max: 90
+                name: 'lwr chamber  '
+                severity:
+                  green: 39
+                  yellow: 50
+                  red: 60
+                unit: F
+                needle: true
+              - type: gauge
+                entity: sensor.beer_flow_meters_keg_temp
+                min: 0
+                max: 90
+                name: keg temp
+                severity:
+                  green: 35
+                  yellow: 45
+                  red: 55
+                unit: F
+                needle: true
+              - type: gauge
+                entity: sensor.beer_flow_meters_upper_chamber_temp
+                min: 0
+                max: 90
+                name: 'upr chamber  '
+                severity:
+                  green: 35
+                  yellow: 45
+                  red: 55
+                unit: F
+                needle: true
+      - type: custom:bar-card
+        entities:
+          - entity: sensor.keg_1_percent
+            name: Keg 1
+            icon: mdi:keg
+          - entity: sensor.keg_2_percent
+            name: Keg 2
+            icon: mdi:keg
+          - entity: sensor.keg_3_percent
+            name: Keg 3
+            icon: mdi:keg
+            height: 30px
+        direction: up
+        width: 90px
+        height: 200px
+        animation:
+          state: 'on'
+        positions:
+          icon: 'on'
+          indicator: inside
+          name: inside
+        title: Kegs 1 2 3
+        severity:
+          - color: Red
+            to: '49'
+            from: '0'
+          - color: Orange
+            from: '50'
+            to: '80'
+          - color: Green
+            from: '81'
+            to: '100'
+        icon: mdi-beer
+        unit_of_measurement: Percent
+        columns: '3'
+        entity_row: true
+        style: |-
+          .card-header {
+            font-size: 18px;
+          }
+          bar-card-value, bar-card-name {
+            font-size: 12px;
+            transform-origin: 0 0;
+            transform: rotate(270deg);
+            text-shadow: 1px 1px #0008;
+            white-space: nowrap;
+          }
+          bar-card-value {
+            margin-right: auto;
+            margin-left: 10px;
+            margin-bottom: auto;
+            margin-top: auto;
+          }
+          bar-card-name {
+            margin-right: auto;
+            margin-left: 0px;
+            margin-bottom: -130px;
+            margin-top: 130px;
+            right: 20px;
+          }
+          bar-card-currentbar, bar-card-backgroundbar {
+            border-radius: 12px;
+            border: 1px solid #DDD9;
+          }
+      - type: vertical-stack
+        title: Beer Taps 4 - 5 - 6
+        cards:
+          - type: markdown
+            content: >
+
+              **Uptime:** {{ states("sensor.glances_server_uptime") }}
+
+
+              <b>Important Processes:</b>
+
+              * **Name:** {{
+              states.sensor.glances_server_cpu_process_glances.attributes.name
+              }} **Stratus**:  {% if
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'R' %} <font color="green">Running</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'S' %} <font color="orange">Interruptible sleep</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'D' %} <font color="red">Uninterruptible sleep</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'Z' %} <font color="red">Defunct process</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'T' %} <font color="red">Traced by job control signal</font>{%
+              elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 't' %} <font color="red">Stopped by debugger</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'X' %} <font color="red">Dead</font>{% else %} <font
+              color="red">Not Running</font> {% endif %}
+
+              <b>PID: </b>{{
+              states.sensor.glances_server_cpu_process_glances.attributes.pid }}
+              <b>User:</b> {{
+              states.sensor.glances_server_cpu_process_glances.attributes.username
+              }}
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                min: 0
+                max: 100
+                entity: sensor.keg_4_percent
+                name: Keg 4
+                severity:
+                  green: 50
+                  yellow: 30
+                  red: 0
+                unit: '%'
+                needle: true
+              - type: gauge
+                entity: sensor.keg_5_percent
+                min: 0
+                max: 100
+                name: Keg 5
+                severity:
+                  green: 50
+                  yellow: 30
+                  red: 0
+                unit: '%'
+                needle: true
+              - type: gauge
+                min: 0
+                max: 100
+                severity:
+                  green: 50
+                  yellow: 30
+                  red: 0
+                entity: sensor.keg_6_percent
+                name: 'Keg 6 '
+                unit: '%'
+                needle: true
+      - type: vertical-stack
+        title: Beer Taps 1 - 2 - 3
+        cards:
+          - type: markdown
+            content: >
+
+              **Uptime:** {{ states("sensor.glances_server_uptime") }}
+
+
+              <b>Important Processes:</b>
+
+              * **Name:** {{
+              states.sensor.glances_server_cpu_process_glances.attributes.name
+              }} **Stratus**:  {% if
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'R' %} <font color="green">Running</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'S' %} <font color="orange">Interruptible sleep</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'D' %} <font color="red">Uninterruptible sleep</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'Z' %} <font color="red">Defunct process</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'T' %} <font color="red">Traced by job control signal</font>{%
+              elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 't' %} <font color="red">Stopped by debugger</font>{% elif
+              states.sensor.glances_server_cpu_process_glances.attributes['status']
+              == 'X' %} <font color="red">Dead</font>{% else %} <font
+              color="red">Not Running</font> {% endif %}
+
+              <b>PID: </b>{{
+              states.sensor.glances_server_cpu_process_glances.attributes.pid }}
+              <b>User:</b> {{
+              states.sensor.glances_server_cpu_process_glances.attributes.username
+              }}
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                min: 0
+                max: 100
+                entity: sensor.keg_1_percent
+                name: Keg 1
+                unit: '%'
+                needle: true
+                severity:
+                  green: 50
+                  yellow: 30
+                  red: 0
+              - type: gauge
+                entity: sensor.keg_2_percent
+                min: 0
+                max: 100
+                name: Keg 2
+                severity:
+                  green: 50
+                  yellow: 30
+                  red: 0
+                unit: '%'
+                needle: true
+              - type: gauge
+                min: 0
+                max: 100
+                severity:
+                  green: 50
+                  yellow: 30
+                  red: 0
+                entity: sensor.keg_3_percent
+                name: Keg 3
+                unit: '%'
+                needle: true
