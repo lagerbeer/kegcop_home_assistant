@@ -1,0 +1,158 @@
+- sensor:
+    - name: "keg 1 last pour oz"
+      unit_of_measurement: "oz"
+      state: >
+        {{  ((states('sensor.keg_1_pulses') | float ) / 
+        (states('input_number.box1') | float)) | float|round(1)  }}
+
+- sensor:
+    - name: "keg 2 last pour oz"
+      unit_of_measurement: "oz"
+      state: >
+        {{  ((states('sensor.keg_2_pulses') | float ) / 
+        (states('input_number.box2') | float)) | float|round(1)   }}
+
+- sensor:
+    - name: "keg 3 last pour oz"
+      unit_of_measurement: "oz"
+      state: >
+        {{  ((states('sensor.keg_3_pulses') | float ) / 
+        (states('input_number.box3') |  float)) | float|round(1)   }}
+
+- sensor:
+    - name: "keg 4 last pour oz"
+      unit_of_measurement: "oz"
+      state: >
+        {{  ((states('sensor.keg_4_pulses') | float) / 
+        (states('input_number.box4') |  float)) | float|round(1)   }}
+
+- sensor:
+    - name: "keg 5 last pour oz"
+      unit_of_measurement: "oz"
+      state: >
+        {{  ((states('sensor.keg_5_pulses') | float ) / 
+        (states('input_number.box5') |  float)) | float|round(1)   }}
+
+- sensor:
+    - name: "keg 6 last pour oz"
+      unit_of_measurement: "oz"
+      state: >
+        {{  ((states('sensor.keg_6_pulses') | float) / 
+        (states('input_number.box6') |  float)) | float|round(1)   }}
+
+#Keg remaining gallons
+- sensor:
+    - name: "keg 1 Gallons"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (((states('sensor.keg_1_totals') | float / (states('input_number.box1')) | float / 128 ) |float|round(2))+0.0 )   }}
+
+- sensor:
+    - name: "keg 2 Gallons"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (((states('sensor.keg_2_totals') | float / (states('input_number.box2')) | float / 128 ) |float|round(2))+0.0 )   }}
+
+- sensor:
+    - name: "keg 3 Gallons"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (((states('sensor.keg_3_totals') | float / (states('input_number.box3')) | float / 128 ) |float|round(2))+0.0 )   }}
+
+- sensor:
+    - name: "keg 4 Gallons"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (((states('sensor.keg_4_totals') | float / (states('input_number.box4')) | float / 128 ) |float|round(2))+0.0 )   }}
+
+- sensor:
+    - name: "keg 5 Gallons"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (((states('sensor.keg_5_totals') | float / (states('input_number.box5')) | float / 128 ) |float|round(2))+0.0 )   }}
+
+- sensor:
+    - name: "keg 6 Gallons"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (((states('sensor.keg_6_totals') | float / (states('input_number.box6')) | float / 128 ) |float|round(2))+0.0 )   }}
+
+#keg gallons remaining
+- sensor:
+    - name: "keg 1 remaining"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (states('input_number.keg_1_size') | float - states('sensor.keg_1_Gallons')| float )|float|round(2)      }}
+
+- sensor:
+    - name: "keg 2 remaining"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (states('input_number.keg_2_size') | float - states('sensor.keg_2_Gallons')| float )|float|round(2)      }}
+
+- sensor:
+    - name: "keg 3 remaining"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (states('input_number.keg_3_size') | float - states('sensor.keg_3_Gallons')| float )|float|round(2)      }}
+
+- sensor:
+    - name: "keg 4 remaining"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (states('input_number.keg_4_size') | float - states('sensor.keg_4_Gallons')| float )|float|round(2)      }}
+
+- sensor:
+    - name: "keg 5 remaining"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (states('input_number.keg_5_size') | float - states('sensor.keg_5_Gallons')| float )|float|round(2)      }}
+
+- sensor:
+    - name: "keg 6 remaining"
+      unit_of_measurement: "Gal"
+      state: >
+        {{  (states('input_number.keg_6_size') | float - states('sensor.keg_6_Gallons')| float )|float|round(2)      }}
+
+#keg percentate remaining
+- sensor:
+    - name: "keg 1 percent"
+      unit_of_measurement: "%"
+      state: >
+        {{  (((states('sensor.keg_1_Gallons') | float(0) ) / 
+        (states('input_number.keg_1_size') | float(0))) | float(0) *-100) | float|round(2) + 100 }}
+
+- sensor:
+    - name: "keg 2 percent"
+      unit_of_measurement: "%"
+      state: >
+        {{  (((states('sensor.keg_2_Gallons') | float(0) ) / 
+        (states('input_number.keg_2_size') | float(0))) | float(0) *-100) | float|round(2) + 100 }}
+
+- sensor:
+    - name: "keg 3 percent"
+      unit_of_measurement: "%"
+      state: >
+        {{  (((states('sensor.keg_3_Gallons') | float(0) ) / 
+        (states('input_number.keg_3_size') | float(0))) | float(0) *-100) | float|round(2) + 100 }}
+
+- sensor:
+    - name: "keg 4 percent"
+      unit_of_measurement: "%"
+      state: >
+        {{  (((states('sensor.keg_4_Gallons') | float(0) ) / 
+        (states('input_number.keg_4_size') | float(0))) | float(0) *-100) | float|round(2) + 100 }}
+
+- sensor:
+    - name: "keg 5 percent"
+      unit_of_measurement: "%"
+      state: >
+        {{  (((states('sensor.keg_5_Gallons') | float(0) ) / 
+        (states('input_number.keg_5_size') | float(0))) | float(0) *-100) | float|round(2) + 100 }}
+
+- sensor:
+    - name: "keg 6 percent"
+      unit_of_measurement: "%"
+      state: >
+        {{  (((states('sensor.keg_6_Gallons') | float(0) ) / 
+        (states('input_number.keg_6_size') | float(0))) | float(0) *-100) | float|round(2) + 100 }}
