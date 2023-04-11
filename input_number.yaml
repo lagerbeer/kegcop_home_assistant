@@ -1,0 +1,47 @@
+box1:
+  name: Keg 1 PPO calibration
+  initial: 27
+  min: -20
+  max: 135
+  step: 1
+  mode: box
+
+box2:
+  name: Keg 2 PPO calibration
+  initial: 32
+  min: -20
+  max: 135
+  step: 1
+  mode: box
+
+box3:
+  name: Keg 3 PPO calibration
+  initial: 27.5
+  min: -20
+  max: 135
+  step: 1
+  mode: box
+
+box4:
+  name: Keg 4 PPO calibration
+  initial: 16
+  min: -20
+  max: 135
+  step: 1
+  mode: box
+
+box5:
+  name: Keg 5 PPO calibration
+  initial: 23
+  min: -20
+  max: 135
+  step: 1
+  mode: box
+
+box6:
+  name: Keg 6 PPO calibration
+  initial: 30
+  min: -20
+  max: 135
+  step: 1
+  mode: box
